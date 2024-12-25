@@ -107,11 +107,12 @@ const setOnFormSubmit = (callback) => {
   form.addEventListener('submit', async (evt) => {
     evt.preventDefault();
     const isValid = pristine.validate();
-
     if (isValid) {
       disableSubmitButton(true);
       const formData = new FormData(form);
-      formData.append('filename', photoLoader.files[0]); // Добавляем картинку в FormData
+      if (photoLoader.files[0]) {
+        formData.append('file', photoLoader.files[0]);
+      }
       await callback(formData);
       disableSubmitButton();
     }
@@ -119,12 +120,12 @@ const setOnFormSubmit = (callback) => {
 };
 
 
-setOnFormSubmit(async (data) => {
+setOnFormSubmit(async (formData) => {
   try {
-    await sendData(data);
+    await sendData(formData);
     hideModal();
     showSuccessMessage();
-  } catch {
-    showErrorMessage();
+  } catch (err) {
+    showErrorMessage(err.message);
   }
 });

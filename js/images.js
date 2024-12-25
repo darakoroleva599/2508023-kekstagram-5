@@ -1,6 +1,7 @@
+import { setNewValue } from './big-images.js';
+
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
-let pictures;
 
 const makePictures = (picturesToDraw) => {
   picturesContainer.querySelectorAll('.picture').forEach((oldPicture) => {
@@ -22,7 +23,9 @@ const makePictures = (picturesToDraw) => {
   });
 
   picturesContainer.appendChild(fragment);
-  pictures = picturesToDraw;
+  setNewValue(picturesToDraw);
 };
 
-export { makePictures, pictures };
+//;
+
+export { makePictures };

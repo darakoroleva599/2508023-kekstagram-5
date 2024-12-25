@@ -110,6 +110,7 @@ const setEffectsSlider = () => {
 const resetEffects = () => {
   currentEffect = INITIAL_EFFECT;
   updateSlider();
+  sliderContainer.classList.add('hidden');
 };
 
 export { resetEffects, setEffectsSlider };

@@ -1,7 +1,7 @@
-import { pictures as photos } from './images.js';
 import { isEscapeKey } from './util.js';
 
 const COMMENTS_TO_LOAD_COUNT = 5;
+let photos;
 
 const commentList = document.querySelector('.social__comments');
 const body = document.querySelector('body');
@@ -83,7 +83,12 @@ const loadComments = (photo) => {
   }
 };
 
+const setNewValue = (updatedPictures) => {
+  photos = updatedPictures;
+};
+
 const onPictureClick = (evt) => {
+
   const picture = evt.target.closest('.picture');
 
   if (picture !== null){
@@ -113,3 +118,5 @@ const onPictureClick = (evt) => {
   }
 };
 pictures.addEventListener('click', onPictureClick);
+
+export { setNewValue };

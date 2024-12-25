@@ -7,7 +7,6 @@ const filterId = {
 const filter = document.querySelector('.img-filters');
 let currentFilter = filterId.DEFAULT;
 
-
 const sortByRandom = () => Math.random() - 0.5;
 
 const sortByComments = (firstPicture, secondPicture) =>

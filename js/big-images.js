@@ -1,7 +1,6 @@
 import { isEscapeKey } from './util.js';
 
 const COMMENTS_TO_LOAD_COUNT = 5;
-let photos;
 
 const commentList = document.querySelector('.social__comments');
 const body = document.querySelector('body');
@@ -12,6 +11,7 @@ const loadMoreButton = document.querySelector('.social__comments-loader');
 const commentCount = document.querySelector('.social__comment-count');
 let uploadedComments = COMMENTS_TO_LOAD_COUNT;
 let photoItem;
+let photos;
 
 const onDocumentKeydown = (evt) => {
   if (isEscapeKey(evt)) {
